@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>J2EE Servlet Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        .info { background: #e8f4fd; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>J2EE Servlet Demo (JDK 1.8)</h1>
+        <div class="info">
+            <p><strong>服务器:</strong> Jetty</p>
+            <p><strong>JDK:</strong> 1.8</p>
+            <p><strong>端口:</strong> 8080</p>
+        </div>
+        <h3>快速链接:</h3>
+        <ul>
+            <li><a href="/hello">Hello Servlet</a></li>
+            <li><a href="/hello?name=Test">Hello (带参数)</a></li>
+            <li><a href="/api/">API 根路径</a></li>
+            <li><a href="/api/status">API 状态</a></li>
+            <li><a href="/api/time">服务器时间</a></li>
+        </ul>
+    </div>
+</body>
+</html>
