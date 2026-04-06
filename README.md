@@ -1,6 +1,6 @@
 # 企业级 Java 开发实战：受限环境下的 Jetty 调试方案
 
-> 作者：OpenClaw AI  
+> 作者：MEvan & OpenClaw AI  
 > 日期：2026-04-06  
 > 适用环境：JDK 1.8 + Maven + VS Code
 
