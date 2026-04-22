@@ -74,12 +74,9 @@ public class StartJettyDebug {
         server.setHandler(webapp);
         
         // 预加载：手动扫描并注册 @WebServlet 和 @WebFilter
-        // (web.xml 中的会由 Jetty 自动加载)
+        // (web.xml 中的配置会由 Jetty 自动加载，包括 Listener)
         preLoadAnnotations(webapp);
-        
-        // 加载自定义配置文件
-        loadCustomConfig(webapp);
-        
+
         server.start();
         
         System.out.println("\n✅ Jetty 已启动！按 Ctrl+C 停止\n");
@@ -147,9 +144,9 @@ public class StartJettyDebug {
         System.out.println("📄 加载配置文件...");
         
         String[] configFiles = {
-            "resources/app.properties",
-            "resources/config.xml",
-            "WebContent/WEB-INF/config.properties"
+            "WEB-INF/classes/com/example/app.properties",
+            "WEB-INF/classes/config.xml",
+            "WEB-INF/config.properties"
         };
         
         Properties props = new Properties();

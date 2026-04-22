@@ -10,6 +10,15 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
+    <!-- ===== 配置文件加载 ===== -->
+    <context-param>
+        <param-name>configFile</param-name>
+        <param-value>com/example/app.properties</param-value>
+    </context-param>
+    <listener>
+        <listener-class>com.example.listener.AppConfigListener</listener-class>
+    </listener>
+
     <!-- ===== JSP 配置 ===== -->
     <jsp-config>
         <jsp-property-group>
