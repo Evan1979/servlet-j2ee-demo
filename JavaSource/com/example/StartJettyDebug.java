@@ -53,10 +53,10 @@ public class StartJettyDebug {
         // 创建 WebApp 上下文
         WebAppContext webapp = new WebAppContext();
         webapp.setContextPath("/");
-        webapp.setResourceBase("src/main/webapp");
+        webapp.setResourceBase("WebContent");
         
         // ============ 关键：让 Jetty 加载 web.xml ============
-        String webXmlPath = "src/main/webapp/WEB-INF/web.xml";
+        String webXmlPath = "WebContent/WEB-INF/web.xml";
         webapp.setDescriptor(webXmlPath);
         
         // 启用 web.xml 和注解扫描
@@ -95,7 +95,7 @@ public class StartJettyDebug {
         System.out.println("  HTTP 端口: " + httpPort);
         System.out.println("  调试端口: " + debugPort);
         System.out.println("  访问地址: http://localhost:" + httpPort);
-        System.out.println("  Web.xml: src/main/webapp/WEB-INF/web.xml");
+        System.out.println("  Web.xml: WebContent/WEB-INF/web.xml");
         System.out.println("===========================================");
     }
     
@@ -147,9 +147,9 @@ public class StartJettyDebug {
         System.out.println("📄 加载配置文件...");
         
         String[] configFiles = {
-            "src/main/resources/app.properties",
-            "src/main/resources/config.xml",
-            "src/main/webapp/WEB-INF/config.properties"
+            "resources/app.properties",
+            "resources/config.xml",
+            "WebContent/WEB-INF/config.properties"
         };
         
         Properties props = new Properties();

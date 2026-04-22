@@ -10,7 +10,7 @@
     <packaging>war</packaging>
 
     <name>Servlet J2EE Demo</name>
-    <description>基于 Jetty 的 J2EE Servlet 项目 (JDK 1.8)</description>
+    <description>基于 Jetty 的 J2EE Servlet 项目 (JDK 1.8) - Eclipse 传统结构</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -25,9 +25,31 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
-            <!-- <scope>provided</scope> -->
+            <scope>provided</scope>
         </dependency>
-        
+
+        <!-- JSP API -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.3</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JSTL API -->
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+
+        <!-- JSTL Implementation (Apache taglib) -->
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.servlet.jsp.jstl</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+
         <!-- Jetty 依赖 (用于嵌入式启动) -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
@@ -44,10 +66,31 @@
             <artifactId>jetty-webapp</artifactId>
             <version>${jetty.version}</version>
         </dependency>
+        <!-- Jetty Apache JSP 支持 ( Jasper ) -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>apache-jsp</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
         <finalName>app</finalName>
+
+        <!-- Eclipse 传统目录结构 -->
+        <sourceDirectory>JavaSource</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>resources</directory>
+            </resource>
+        </resources>
+        <testSourceDirectory>test</testSourceDirectory>
+        <testResources>
+            <testResource>
+                <directory>test</directory>
+            </testResource>
+        </testResources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -76,6 +119,7 @@
                     <scanIntervalSeconds>0</scanIntervalSeconds>
                     <stopKey>STOP</stopKey>
                     <stopPort>1288</stopPort>
+                    <webAppSourceDirectory>WebContent</webAppSourceDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -97,6 +141,7 @@
                 <version>3.4.0</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warSourceDirectory>WebContent</warSourceDirectory>
                 </configuration>
             </plugin>
         </plugins>
